@@ -1,11 +1,11 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import { FriendPostHeader } from "./FriendPostHeader";
-export const FriendsPosts = () => {
+export const FriendsPosts = ({ randomImageSig }) => {
   return (
     <Box display={"flex"} flexDirection={"column"} textAlign="left" mb={10}>
       <FriendPostHeader />
       <Image
-        src="https://source.unsplash.com/user/c_v_r/300x200"
+        src={`https://source.unsplash.com/user/c_v_r/300x200?sig=${randomImageSig}`}
         alt="sample_image"
         borderRadius="15"
         boxSize="65vh"
