@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { WagmiConfig, createClient, configureChains, chain } from "wagmi";
+import { MetaMaskConnector } from "wagmi/connectors/metaMask";
+import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+import { publicProvider } from "wagmi/providers/public";
+import { Profile } from "./components/Profile";
+const { chains, provider, webSocketProvider } = configureChains(
+  [chain.polygon],
+  [publicProvider()]
+);
 
-function App() {
-  const [count, setCount] = useState(0)
+const client = createClient({
+  autoConnect: false,
+  connectors: [
+    new MetaMaskConnector({ chains: [chain.polygon] }),
+    new WalletConnectConnector({
+      chains: [chain.polygon],
+      options: {
+        qrcode: true,
+      },
+    }),
+  ],
+  provider,
+  webSocketProvider,
+});
 
+// Pass client to React Context Provider
+export const App = () => {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <WagmiConfig client={client}>
+      <Profile />
+      <div className="App">
+        <p>Testing web3 login</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
-
-export default App
+    </WagmiConfig>
+  );
+};
