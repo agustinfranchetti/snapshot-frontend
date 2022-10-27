@@ -8,9 +8,9 @@ import { FriendPostHeader } from "./FriendPostHeader";
  * @returns {JSX.Element}
  */
 export const FriendsPosts = ({ randomImageSig }) => {
-  const backCameraImage = "https://source.unsplash.com/user/c_v_r/300x200";
+  const backCameraImage = "https://source.unsplash.com/user/c_v_r/350x400";
   const frontCameraImage =
-    "https://source.unsplash.com/user/samuelzeller/300x200";
+    "https://source.unsplash.com/user/samuelzeller/350x400";
 
   const [mainImage, setMainImage] = useState(backCameraImage);
   const [secondaryImage, setSecondaryImage] = useState(frontCameraImage);
@@ -34,7 +34,7 @@ export const FriendsPosts = ({ randomImageSig }) => {
         borderRadius="10"
         boxSize="65vh"
         w={"90vw"}
-        backgroundSize="cover"
+        backgroundSize="contain"
       >
         <Image
           src={secondaryImage}
@@ -42,7 +42,7 @@ export const FriendsPosts = ({ randomImageSig }) => {
           borderRadius="10"
           boxSize="20vh"
           w={"30vw"}
-          style={{ objectFit: "cover" }}
+          fit="cover"
           onClick={handleImageChange}
           mt={2}
           ml={2}
