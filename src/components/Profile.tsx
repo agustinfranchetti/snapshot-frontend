@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   useAccount,
   useConnect,
@@ -6,8 +7,7 @@ import {
   useNetwork,
   useSwitchNetwork,
 } from "wagmi";
-
-import React, { useEffect } from "react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
 export const Profile = () => {
   const { address, isConnected } = useAccount();
@@ -32,32 +32,32 @@ export const Profile = () => {
 
   if (isConnected) {
     return (
-      <div>
-        <p>Connected to {network?.name}</p>
-        <p>Address: {address}</p>
-        <p>ENS Name: {ensName || "no ENS domain"}</p>
-        <button onClick={() => disconnect()}>Disconnect</button>
-      </div>
+      <Flex flexDir={"column"} textAlign="center" alignItems="center">
+        <Text>Connected to {network?.name}</Text>
+        <Text>Address: {address}</Text>
+        <Text>ENS Name: {ensName || "no ENS domain"}</Text>
+        <Button colorScheme={"pink"} width={"52"} onClick={() => disconnect()}>
+          Disconnect
+        </Button>
+      </Flex>
     );
   }
 
   return (
-    <div>
+    <Flex
+      flexDir={"column"}
+      textAlign="center"
+      alignItems="center"
+      justifyContent="center"
+      gap={2}
+      mt={2}
+    >
       {connectors.map((connector) => (
-        <button
-          disabled={!connector.ready}
-          key={connector.id}
-          onClick={() => connect({ connector })}
-        >
-          {connector.name}
-          {!connector.ready && " (unsupported)"}
-          {isLoading &&
-            connector.id === pendingConnector?.id &&
-            " (connecting)"}
-        </button>
+        <Button key={connector.id} onClick={() => connect({ connector })}>
+          Connect with {connector.name}
+        </Button>
       ))}
-
-      {error && <div>{error.message}</div>}
-    </div>
+      {error && <Text color="red">{error.message}</Text>}
+    </Flex>
   );
 };

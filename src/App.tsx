@@ -3,6 +3,8 @@ import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { publicProvider } from "wagmi/providers/public";
 import { Profile } from "./components/Profile";
+import { NavBar } from "./components/NavBar";
+import { Flex } from "@chakra-ui/react";
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.polygon],
   [publicProvider()]
@@ -27,10 +29,10 @@ const client = createClient({
 export const App = () => {
   return (
     <WagmiConfig client={client}>
-      <Profile />
-      <div className="App">
-        <p>Testing web3 login</p>
-      </div>
+      <NavBar />
+      <Flex flexDir="column" alignItems="center" mt={"10vh"}>
+        <Profile />
+      </Flex>
     </WagmiConfig>
   );
 };
