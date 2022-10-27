@@ -21,6 +21,9 @@ export const NavBar = () => {
         icon={<BsFillPeopleFill size={"1.7rem"} />}
         isRound
         variant="ghost"
+        onClick={() => {
+          console.log("Friends");
+        }}
       />
       <Text fontSize="xl" fontWeight="bold">
         SnapShot
@@ -30,6 +33,9 @@ export const NavBar = () => {
         icon={<CgProfile size={"1.7rem"} />}
         isRound
         variant="ghost"
+        onClick={() => {
+          console.log("Profile");
+        }}
       />
     </Flex>
   );

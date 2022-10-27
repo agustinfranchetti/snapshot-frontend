@@ -2,9 +2,11 @@ import { WagmiConfig, createClient, configureChains, chain } from "wagmi";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { publicProvider } from "wagmi/providers/public";
-import { Profile } from "./components/Profile";
 import { NavBar } from "./components/NavBar";
 import { Flex } from "@chakra-ui/react";
+
+import { MainScreenContainer } from "./components/MainScreen/MainScreenContainer";
+
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.polygon],
   [publicProvider()]
@@ -31,7 +33,7 @@ export const App = () => {
     <WagmiConfig client={client}>
       <NavBar />
       <Flex flexDir="column" alignItems="center" mt={"10vh"}>
-        <Profile />
+        <MainScreenContainer />
       </Flex>
     </WagmiConfig>
   );
