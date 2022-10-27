@@ -1,5 +1,10 @@
 import { FriendsReactions } from "./FriendsReactions";
 import { Image, Box, Text } from "@chakra-ui/react";
+
+/**
+ * Component that displays the user's personal post for the day
+ * @returns {JSX.Element}
+ */
 export const PersonalPost = () => {
   return (
     <Box

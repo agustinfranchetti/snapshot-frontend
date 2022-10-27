@@ -9,6 +9,11 @@ import {
 } from "wagmi";
 import { Button, Flex, Text } from "@chakra-ui/react";
 
+/**
+ * Component thet displays login buttons for metamask and wallet
+ * connect if the user is not connected
+ * @returns {JSX.Element}
+ */
 export const Login = () => {
   const { isConnected } = useAccount();
   const { chain: network } = useNetwork();

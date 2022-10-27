@@ -1,5 +1,11 @@
 import { Avatar, Text, Flex, IconButton } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
+
+/**
+ * Component that displays the header of a friend's post
+ * containing the friend's name and profile picture
+ * @returns {JSX.Element}
+ */
 export const FriendPostHeader = () => {
   return (
     <Flex w={"90vw"} justifyContent={"space-between"} mt={2}>

@@ -1,6 +1,12 @@
 import { BsFillPeopleFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { Flex, IconButton, Text } from "@chakra-ui/react";
+
+/**
+ * Component that displays the navigation bar at the top of the screen,
+ * with the options to go to the profile or the friends list
+ * @returns {JSX.Element}
+ */
 export const NavBar = () => {
   return (
     <Flex

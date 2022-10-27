@@ -2,7 +2,11 @@ import React from "react";
 import { useAccount, useDisconnect, useEnsName, useNetwork } from "wagmi";
 import { Button, Flex, Text } from "@chakra-ui/react";
 
-export const Login = () => {
+/**
+ * Component that displays the user's account information
+ * @returns {JSX.Element}
+ */
+export const Profile = () => {
   const { address, isConnected } = useAccount();
   const { data: ensName } = useEnsName({
     // uncomment to test with ENS, this is vitalik.eth's address

@@ -1,4 +1,10 @@
 import { AvatarGroup, Avatar } from "@chakra-ui/react";
+
+/**
+ * Component containing the reactions of the user's friends
+ * for the user's personal post
+ * @returns {JSX.Element}
+ */
 export const FriendsReactions = () => {
   return (
     <AvatarGroup size="sm" max={2} mt={-5}>
