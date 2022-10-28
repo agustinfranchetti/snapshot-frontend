@@ -13,8 +13,6 @@ export const MainScreen = () => {
     <Box>
       <PersonalPost />
       <FriendsPosts />
-      <FriendsPosts />
-      <FriendsPosts />
     </Box>
   );
 };

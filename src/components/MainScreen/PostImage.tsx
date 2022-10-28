@@ -35,7 +35,7 @@ export const PostImage = ({
     <Box
       key="imagesContainer"
       borderRadius="10"
-      boxSize={isLarge ? "65vh" : "150px"}
+      boxSize={isLarge ? "60vh" : "150px"}
       w={isLarge ? "90vw" : 130}
     >
       <Image
@@ -53,9 +53,9 @@ export const PostImage = ({
         alt="secondaryImage"
         borderRadius="10"
         sx={{
-          "border-style": "solid",
-          "border-width": "2px",
-          "border-color": "white",
+          borderStyle: "solid",
+          borderWidth: "2px",
+          borderColor: "white",
         }}
         mt={2}
         ml={2}
