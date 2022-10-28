@@ -11,7 +11,7 @@ export const FriendPostHeader = () => {
     <Flex w={"90vw"} justifyContent={"space-between"} mt={2}>
       <Flex gap={2} alignItems={"center"}>
         <Avatar
-          size={"xs"}
+          size={"sm"}
           name={"Dan Abrahmov"}
           src={"https://bit.ly/dan-abramov"}
         />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, Spinner } from "@chakra-ui/react";
 import { FriendPostHeader } from "./FriendPostHeader";
-
+import { PostImage } from "../PostImage";
 /**
  * Component that displays a friend's post
  * @returns {JSX.Element}
@@ -26,31 +26,11 @@ export const FriendsPosts = () => {
   return (
     <Box display={"flex"} flexDirection={"column"} textAlign="left" mb={10}>
       <FriendPostHeader />
-      <Box
-        key="mainImage"
-        backgroundImage={mainImage}
-        borderRadius="10"
-        boxSize="65vh"
-        w={"90vw"}
-        backgroundSize="cover"
-      >
-        <Image
-          src={secondaryImage}
-          alt="secondaryImage"
-          borderRadius="10"
-          boxSize="20vh"
-          w={"30vw"}
-          fit="cover"
-          onClick={handleImageChange}
-          mt={2}
-          ml={2}
-          sx={{
-            "border-style": "solid",
-            "border-width": "2px",
-            "border-color": "black",
-          }}
-        />
-      </Box>
+      <PostImage
+        backCameraImage={backCameraImage}
+        frontCameraImage={frontCameraImage}
+        isLarge={true}
+      />
       <Text color={"gray.500"}>Add a comment...</Text>
     </Box>
   );
