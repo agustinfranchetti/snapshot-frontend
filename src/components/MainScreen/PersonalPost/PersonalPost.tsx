@@ -9,8 +9,10 @@ import { PersonalPostDrawer } from "./PersonalPostDrawer";
  */
 export const PersonalPost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const backCameraImage = "https://source.unsplash.com/random/400x450";
-  const frontCameraImage = "https://source.unsplash.com/user/erondu/400x450";
+  const backCameraImage =
+    "https://source.unsplash.com/collection/190727/400x450";
+  const frontCameraImage =
+    "https://source.unsplash.com/user/simonmigaj/400x450";
 
   return (
     <Box
