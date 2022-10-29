@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, Image, Text, Spinner } from "@chakra-ui/react";
+import { useState } from "react";
+import { Box, Text } from "@chakra-ui/react";
 import { FriendPostHeader } from "./FriendPostHeader";
 import { PostImage } from "../PostImage";
 import { friendsPostsMock, IPost } from "./friendsPostsMock";
@@ -30,7 +30,9 @@ export const FriendsPosts = () => {
             frontCameraImage={post.frontCameraImage}
             isLarge={true}
           />
-          <Text color={"gray.500"}>Add a comment...</Text>
+          <Text ml={2} color={"gray.500"}>
+            Add a comment...
+          </Text>
         </Box>
       ))}
     </Box>
