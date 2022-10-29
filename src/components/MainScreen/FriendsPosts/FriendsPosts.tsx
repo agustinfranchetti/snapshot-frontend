@@ -14,7 +14,13 @@ export const FriendsPosts = () => {
   return (
     <Box>
       {posts.map((post) => (
-        <Box display={"flex"} flexDirection={"column"} textAlign="left" mb={10}>
+        <Box
+          key={`friend ${post.friendName}`}
+          display={"flex"}
+          flexDirection={"column"}
+          textAlign="left"
+          mb={10}
+        >
           <FriendPostHeader
             name={post.friendName}
             profilePicture={post.friendAvatar}

@@ -8,13 +8,13 @@ export interface IPost {
 export const friendsPostsMock: IPost[] = [
   {
     friendName: "John Doe",
-    friendAvatar: "https://bit.ly/john-doe",
+    friendAvatar: "https://source.unsplash.com/random/100x100",
     backCameraImage: "https://source.unsplash.com/collection/1163637/800x600",
     frontCameraImage: "https://i.pravatar.cc/150?img=1",
   },
   {
     friendName: "David Doe",
-    friendAvatar: "https://bit.ly/david-doe",
+    friendAvatar: "https://source.unsplash.com/random/100x100",
     backCameraImage: "https://source.unsplash.com/collection/100/400x450",
     frontCameraImage: "https://i.pravatar.cc/150?img=2",
   },
