@@ -35,8 +35,8 @@ export const PostImage = ({
     <Box
       key="imagesContainer"
       borderRadius="10"
-      boxSize={isLarge ? "60vh" : "150px"}
-      w={isLarge ? "90vw" : 130}
+      boxSize={isLarge ? "450px" : "150px"}
+      w={isLarge ? "90vw" : "130px"}
     >
       <Image
         alt="mainImage"
@@ -62,7 +62,7 @@ export const PostImage = ({
         fit="cover"
         position="absolute"
         onClick={isLarge ? handleImageChange : onClick}
-        boxSize={isLarge ? "20vh" : "8vh"}
+        boxSize={isLarge ? "150px" : "60px"}
         w={isLarge ? "30vw" : "12vw"}
       />
     </Box>
