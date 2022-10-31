@@ -30,12 +30,12 @@ export const PersonalPostCommentModal = () => {
       </Text>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent w={"90vw"}>
           <ModalHeader>Add a description</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Input
-              placeholder="Add a description..."
+              placeholder="Type a description here..."
               value={inputDescription}
               onChange={(e) => setInputDescription(e.target.value)}
             />
