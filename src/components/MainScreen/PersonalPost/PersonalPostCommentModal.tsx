@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { PersonalPost } from './PersonalPost';
 import {
   Modal,
   ModalOverlay,
@@ -14,13 +15,22 @@ import {
   Container,
 } from "@chakra-ui/react";
 
+interface PersonalPostCommentModalProps {
+  description: string;
+  setDescription: (description: string) => void;
+}
+
 /**
  * Modal that displays the user's personal post description
  * @returns {JSX.Element} - Modal that displays the user's personal post description
  */
-export const PersonalPostCommentModal = () => {
+export const PersonalPostCommentModal = (
+  {
+    description,
+    setDescription,
+  }: PersonalPostCommentModalProps
+) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [description, setDescription] = useState("");
   const [inputDescription, setInputDescription] = useState("");
 
   return (

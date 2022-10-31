@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FriendsReactions } from "./FriendsReactions";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import { PostImage } from "../PostImage";
@@ -13,6 +14,8 @@ export const PersonalPost = () => {
     "https://source.unsplash.com/collection/190727/400x450";
   const frontCameraImage =
     "https://source.unsplash.com/user/simonmigaj/400x450";
+
+  const [description, setDescription] = useState("");
 
   return (
     <Box
@@ -33,8 +36,12 @@ export const PersonalPost = () => {
         onClose={onClose}
         backCameraImage={backCameraImage}
         frontCameraImage={frontCameraImage}
+        description={description}
       />
-      <PersonalPostCommentModal />
+      <PersonalPostCommentModal 
+        description={description}
+        setDescription={setDescription} 
+      />
     </Box>
   );
 };
