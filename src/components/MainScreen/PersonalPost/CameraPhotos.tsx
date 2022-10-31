@@ -38,15 +38,15 @@ export const CameraPhotos = ({
   backCameraImage,
 }: CameraPhotosProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const webcamRef = React.useRef(null);
+  const webcamRef = React.useRef() as React.MutableRefObject<Webcam>;
   const [videoConstraints, setVideoConstraints] =
     React.useState(backVideoConstraints);
 
   const capture = () => {
     setVideoConstraints(backVideoConstraints);
-    setBackCameraImage(webcamRef.current.getScreenshot());
+    setBackCameraImage(webcamRef.current.getScreenshot() as string);
     setVideoConstraints(frontVideoConstraints);
-    setFrontCameraImage(webcamRef.current.getScreenshot());
+    setFrontCameraImage(webcamRef.current.getScreenshot() as string);
     onClose();
   };
 
