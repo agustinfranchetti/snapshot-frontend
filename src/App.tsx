@@ -3,7 +3,8 @@ import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { publicProvider } from "wagmi/providers/public";
 import { NavBar } from "./components/NavBar";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
+import { DesktopView } from "./components/MainScreen/DesktopView";
 
 import { MainScreenContainer } from "./components/MainScreen/MainScreenContainer";
 
@@ -31,10 +32,13 @@ const client = createClient({
 export const App = () => {
   return (
     <WagmiConfig client={client}>
-      <NavBar />
-      <Flex flexDir="column" alignItems="center" mt={"10vh"}>
-        <MainScreenContainer />
-      </Flex>
+      <Box display={{ base: "block", md: "none" }}>
+        <NavBar />
+        <Flex flexDir="column" alignItems="center" mt={"10vh"}>
+          <MainScreenContainer />
+        </Flex>
+      </Box>
+      <DesktopView />
     </WagmiConfig>
   );
 };
