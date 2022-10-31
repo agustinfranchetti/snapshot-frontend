@@ -13,7 +13,8 @@ export const MainScreenContainer = () => {
   const { isConnected } = useAccount();
   return (
     <Flex flexDir="column" alignItems="center" mt={2}>
-      {isConnected ? <MainScreen /> : <Login />}
+      {/* {isConnected ? <MainScreen /> : <Login />} */}
+       <MainScreen /> 
     </Flex>
   );
 };

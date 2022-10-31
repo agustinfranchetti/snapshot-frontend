@@ -4,6 +4,7 @@ import { Box, useDisclosure } from "@chakra-ui/react";
 import { PostImage } from "../PostImage";
 import { PersonalPostDrawer } from "./PersonalPostDrawer";
 import { PersonalPostCommentModal } from "./PersonalPostCommentModal";
+import { CameraPhotos } from "./CameraPhotos";
 /**
  * Component that displays the user's personal post for the day
  * @returns {JSX.Element}
@@ -24,6 +25,7 @@ export const PersonalPost = () => {
       textAlign="center"
       alignItems={"center"}
     >
+      <CameraPhotos />
       <PostImage
         backCameraImage={backCameraImage}
         frontCameraImage={frontCameraImage}
@@ -32,8 +34,8 @@ export const PersonalPost = () => {
       />
       <FriendsReactions />
       <PersonalPostDrawer
-        isOpen={isOpen}
         onClose={onClose}
+        isOpen={isOpen}
         backCameraImage={backCameraImage}
         frontCameraImage={frontCameraImage}
         description={description}
