@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { FriendsReactions } from "./FriendsReactions";
-import { Image, Box, Text, useDisclosure } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import { PostImage } from "../PostImage";
 import { PersonalPostDrawer } from "./PersonalPostDrawer";
+import { PersonalPostCommentModal } from "./PersonalPostCommentModal";
 /**
  * Component that displays the user's personal post for the day
  * @returns {JSX.Element}
@@ -34,7 +34,7 @@ export const PersonalPost = () => {
         backCameraImage={backCameraImage}
         frontCameraImage={frontCameraImage}
       />
-      <Text>Sample Description</Text>
+      <PersonalPostCommentModal />
     </Box>
   );
 };
