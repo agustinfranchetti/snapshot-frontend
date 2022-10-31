@@ -25,6 +25,8 @@ export const PersonalPost = () => {
       <CameraPhotos
         setFrontCameraImage={setFrontCameraImage}
         setBackCameraImage={setBackCameraImage}
+        frontCameraImage={frontCameraImage}
+        backCameraImage={backCameraImage}
       />
       <PostImage
         backCameraImage={backCameraImage}

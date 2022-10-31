@@ -27,11 +27,15 @@ const frontVideoConstraints = {
 interface CameraPhotosProps {
   setFrontCameraImage: (frontCameraImage: string) => void;
   setBackCameraImage: (backCameraImage: string) => void;
+  frontCameraImage: string;
+  backCameraImage: string;
 }
 
 export const CameraPhotos = ({
   setFrontCameraImage,
   setBackCameraImage,
+  frontCameraImage,
+  backCameraImage,
 }: CameraPhotosProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const webcamRef = React.useRef(null);
@@ -56,10 +60,10 @@ export const CameraPhotos = ({
           <ModalBody>
             <Webcam
               audio={false}
-              height={720}
+              height={1280}
               ref={webcamRef}
-              screenshotFormat="image/jpeg"
-              width={1280}
+              screenshotFormat="image/webp"
+              width={720}
               videoConstraints={backVideoConstraints}
             />
           </ModalBody>
@@ -73,7 +77,9 @@ export const CameraPhotos = ({
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <Button onClick={onOpen}>Open Modal</Button>
+      {frontCameraImage === "" && backCameraImage === "" && (
+        <Button onClick={onOpen}>Open Modal</Button>
+      )}
     </Box>
   );
 };
