@@ -11,8 +11,7 @@ import { CameraPhotos } from "./CameraPhotos";
  */
 export const PersonalPost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const backCameraImage =
-    "https://source.unsplash.com/collection/190727/400x450";
+  const [backCameraImage, setBackCameraImage] = useState("");
   const frontCameraImage =
     "https://source.unsplash.com/user/simonmigaj/400x450";
 
@@ -25,7 +24,10 @@ export const PersonalPost = () => {
       textAlign="center"
       alignItems={"center"}
     >
-      <CameraPhotos />
+      <CameraPhotos
+        backCameraImage={backCameraImage}
+        setBackCameraImage={setBackCameraImage}
+      />
       <PostImage
         backCameraImage={backCameraImage}
         frontCameraImage={frontCameraImage}
@@ -40,9 +42,9 @@ export const PersonalPost = () => {
         frontCameraImage={frontCameraImage}
         description={description}
       />
-      <PersonalPostCommentModal 
+      <PersonalPostCommentModal
         description={description}
-        setDescription={setDescription} 
+        setDescription={setDescription}
       />
     </Box>
   );

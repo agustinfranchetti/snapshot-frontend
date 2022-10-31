@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Image } from "@chakra-ui/react";
 
 interface IFallbackImageProps {
@@ -48,6 +48,10 @@ export const PostImage = ({
   const [mainImage, setMainImage] = useState(backCameraImage);
   const [secondaryImage, setSecondaryImage] = useState(frontCameraImage);
 
+  useEffect(() => {
+    setMainImage(backCameraImage);
+  }, [backCameraImage]);
+
   const handleImageChange = () => {
     if (mainImage === backCameraImage) {
       setMainImage(frontCameraImage);
@@ -74,7 +78,7 @@ export const PostImage = ({
         display={mainImage ? "block" : "none"}
         position="absolute"
         onClick={isLarge ? undefined : onClick}
-        fallback={<FallbackLoadingAnimation isLarge={isLarge} />}
+        // fallback={<FallbackLoadingAnimation isLarge={isLarge} />}
         animation="fadeIn 1s"
       />
       <Image
