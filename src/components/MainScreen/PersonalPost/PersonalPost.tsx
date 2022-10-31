@@ -12,9 +12,7 @@ import { CameraPhotos } from "./CameraPhotos";
 export const PersonalPost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [backCameraImage, setBackCameraImage] = useState("");
-  const frontCameraImage =
-    "https://source.unsplash.com/user/simonmigaj/400x450";
-
+  const [frontCameraImage, setFrontCameraImage] = useState("");
   const [description, setDescription] = useState("");
 
   return (
@@ -25,7 +23,7 @@ export const PersonalPost = () => {
       alignItems={"center"}
     >
       <CameraPhotos
-        backCameraImage={backCameraImage}
+        setFrontCameraImage={setFrontCameraImage}
         setBackCameraImage={setBackCameraImage}
       />
       <PostImage

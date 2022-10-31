@@ -13,25 +13,36 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-const videoConstraints = {
+const backVideoConstraints = {
+  width: 720,
+  height: 1280,
+  facingMode: "environment",
+};
+const frontVideoConstraints = {
   width: 720,
   height: 1280,
   facingMode: "user",
 };
 
 interface CameraPhotosProps {
-  backCameraImage: string;
+  setFrontCameraImage: (frontCameraImage: string) => void;
   setBackCameraImage: (backCameraImage: string) => void;
 }
 
 export const CameraPhotos = ({
-  backCameraImage,
+  setFrontCameraImage,
   setBackCameraImage,
 }: CameraPhotosProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const webcamRef = React.useRef(null);
+  const [videoConstraints, setVideoConstraints] =
+    React.useState(backVideoConstraints);
+
   const capture = () => {
+    setVideoConstraints(backVideoConstraints);
     setBackCameraImage(webcamRef.current.getScreenshot());
+    setVideoConstraints(frontVideoConstraints);
+    setFrontCameraImage(webcamRef.current.getScreenshot());
     onClose();
   };
 
@@ -49,7 +60,7 @@ export const CameraPhotos = ({
               ref={webcamRef}
               screenshotFormat="image/jpeg"
               width={1280}
-              videoConstraints={videoConstraints}
+              videoConstraints={backVideoConstraints}
             />
           </ModalBody>
           <ModalFooter>

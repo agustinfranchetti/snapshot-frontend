@@ -50,7 +50,8 @@ export const PostImage = ({
 
   useEffect(() => {
     setMainImage(backCameraImage);
-  }, [backCameraImage]);
+    setSecondaryImage(frontCameraImage);
+  }, [backCameraImage, frontCameraImage]);
 
   const handleImageChange = () => {
     if (mainImage === backCameraImage) {
@@ -98,6 +99,7 @@ export const PostImage = ({
         boxSize={isLarge ? "150px" : "60px"}
         w={isLarge ? "30vw" : "12vw"}
         animation="fadeIn 1s"
+        display={secondaryImage ? "block" : "none"}
       />
     </Box>
   );
