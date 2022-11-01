@@ -118,7 +118,15 @@ export const CameraPhotos = ({
         </ModalContent>
       </Modal>
       {frontCameraImage === "" && backCameraImage === "" && (
-        <Button w={"130px"} h={"150px"} onClick={onOpen} backgroundColor={"white"} border={"2px solid black"} borderRadius={"10px"}>
+        <Button
+          w={"130px"}
+          h={"150px"}
+          onClick={onOpen}
+          backgroundColor={"white"}
+          border={"2px solid black"}
+          borderRadius={"10px"}
+          marginTop={"20px"}
+        >
           <Box
             display={"flex"}
             flexDirection={"column"}
@@ -126,8 +134,8 @@ export const CameraPhotos = ({
             alignItems={"center"}
             gap={2}
           >
-          <Text fontSize={"lg"}>Snap</Text>
-          <MdOutlineAddAPhoto size={"30%"} />
+            <Text fontSize={"lg"}>Snap</Text>
+            <MdOutlineAddAPhoto size={"30%"} />
           </Box>
         </Button>
       )}
