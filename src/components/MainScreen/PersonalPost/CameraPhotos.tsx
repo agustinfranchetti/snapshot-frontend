@@ -103,9 +103,8 @@ export const CameraPhotos = ({
             ) : (
               <BackCamera cameraRef={backCameraRef} />
             )}
-            <Box display="flex" justifyContent="center" width="100%" mt={-12}>
+            <Box display="flex" justifyContent="center" width="100%" mt={-15}>
               <IconButton
-                mb={3}
                 size="3.5em"
                 onClick={capture}
                 icon={<RiCameraLensLine size={"3em"} />}
