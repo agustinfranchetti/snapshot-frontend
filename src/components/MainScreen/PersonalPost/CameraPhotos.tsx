@@ -14,13 +14,9 @@ import {
 } from "@chakra-ui/react";
 
 const backVideoConstraints = {
-  // width: 720,
-  // height: 1280,
   facingMode: "environment",
 };
 const frontVideoConstraints = {
-  // width: 720,
-  // height: 1280,
   facingMode: "user",
 };
 
@@ -38,15 +34,12 @@ export const CameraPhotos = ({
   backCameraImage,
 }: CameraPhotosProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const webcamRef = React.useRef() as React.MutableRefObject<Webcam>;
-  const [videoConstraints, setVideoConstraints] =
-    React.useState(backVideoConstraints);
-
+  const backCameraRef = React.useRef() as React.MutableRefObject<Webcam>;
+  const frontCameraRef = React.useRef() as React.MutableRefObject<Webcam>;
+  const [isFrontCamera, setIsFrontCamera] = React.useState(false);
   const capture = () => {
-    setVideoConstraints(backVideoConstraints);
-    setBackCameraImage(webcamRef.current.getScreenshot() as string);
-    setVideoConstraints(frontVideoConstraints);
-    setFrontCameraImage(webcamRef.current.getScreenshot() as string);
+    setBackCameraImage(backCameraRef.current.getScreenshot() as string);
+    setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
     onClose();
   };
 
@@ -58,14 +51,28 @@ export const CameraPhotos = ({
           <ModalHeader>Take a photo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+
+            <Box hidden={isFrontCamera}>
             <Webcam
               audio={false}
               height={1920}
-              ref={webcamRef}
+              ref={backCameraRef}
+              screenshotFormat="image/jpeg"
+              width={1080}
+              videoConstraints={backVideoConstraints}
+            />
+            </Box>
+            <Box hidden={!isFrontCamera}>
+            <Webcam
+              audio={false}
+              height={1920}
+              ref={frontCameraRef}
               screenshotFormat="image/jpeg"
               width={1080}
               videoConstraints={frontVideoConstraints}
             />
+            </Box>
+            <Button onClick={() => setIsFrontCamera(!isFrontCamera)}>Switch camera</Button>
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={capture}>
