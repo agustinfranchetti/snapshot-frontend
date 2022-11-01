@@ -51,17 +51,22 @@ export const CameraPhotos = ({
           <ModalHeader>Take a photo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Button onClick={() => setIsFrontCamera(!isFrontCamera)}>
+            <Button
+              onClick={() => {
+                setIsFrontCamera(!isFrontCamera);
+                if (isFrontCamera) {
+                  backCameraRef.current.componentWillUnmount();
+                } else {
+                  frontCameraRef.current.componentWillUnmount();
+                }
+              }}
+            >
               Switch camera
             </Button>
             {isFrontCamera ? (
-            <FrontCamera
-              cameraRef={frontCameraRef}
-            />
+              <FrontCamera cameraRef={frontCameraRef} />
             ) : (
-            <BackCamera
-              cameraRef={backCameraRef}
-            />
+              <BackCamera cameraRef={backCameraRef} />
             )}
           </ModalBody>
           <ModalFooter>
@@ -86,25 +91,25 @@ interface CameraProps {
 }
 const FrontCamera = ({ cameraRef }: CameraProps) => {
   return (
-      <Webcam
-        audio={false}
-        height={1920}
-        ref={cameraRef}
-        screenshotFormat="image/jpeg"
-        width={1080}
-        videoConstraints={frontVideoConstraints}
-      />
+    <Webcam
+      audio={false}
+      height={1920}
+      ref={cameraRef}
+      screenshotFormat="image/jpeg"
+      width={1080}
+      videoConstraints={frontVideoConstraints}
+    />
   );
 };
 const BackCamera = ({ cameraRef }: CameraProps) => {
   return (
-      <Webcam
-        audio={false}
-        height={1920}
-        ref={cameraRef}
-        screenshotFormat="image/jpeg"
-        width={1080}
-        videoConstraints={backVideoConstraints}
-      />
+    <Webcam
+      audio={false}
+      height={1920}
+      ref={cameraRef}
+      screenshotFormat="image/jpeg"
+      width={1080}
+      videoConstraints={backVideoConstraints}
+    />
   );
 };
