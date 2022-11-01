@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FriendsReactions } from "./FriendsReactions";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import { PostImage } from "../PostImage";
@@ -21,39 +21,31 @@ export const PersonalPost = () => {
       flexDirection={"column"}
       textAlign="center"
       alignItems={"center"}
-      borderRadius="10"
-      boxSize={"150px"}
-      w={"100%"}
     >
-      {backCameraImage === "" && frontCameraImage === "" ? (
-        <CameraPhotos
-          setFrontCameraImage={setFrontCameraImage}
-          setBackCameraImage={setBackCameraImage}
-          frontCameraImage={frontCameraImage}
-          backCameraImage={backCameraImage}
-        />
-      ) : (
-        <Box>
-          <PostImage
-            backCameraImage={backCameraImage}
-            frontCameraImage={frontCameraImage}
-            isLarge={false}
-            onClick={onOpen}
-          />
-          <FriendsReactions />
-          <PersonalPostCommentModal
-            description={description}
-            setDescription={setDescription}
-          />
-          <PersonalPostDrawer
-            onClose={onClose}
-            isOpen={isOpen}
-            backCameraImage={backCameraImage}
-            frontCameraImage={frontCameraImage}
-            description={description}
-          />
-        </Box>
-      )}
+      <CameraPhotos
+        setFrontCameraImage={setFrontCameraImage}
+        setBackCameraImage={setBackCameraImage}
+        frontCameraImage={frontCameraImage}
+        backCameraImage={backCameraImage}
+      />
+      <PostImage
+        backCameraImage={backCameraImage}
+        frontCameraImage={frontCameraImage}
+        isLarge={false}
+        onClick={onOpen}
+      />
+      <FriendsReactions />
+      <PersonalPostDrawer
+        onClose={onClose}
+        isOpen={isOpen}
+        backCameraImage={backCameraImage}
+        frontCameraImage={frontCameraImage}
+        description={description}
+      />
+      <PersonalPostCommentModal
+        description={description}
+        setDescription={setDescription}
+      />
     </Box>
   );
 };
