@@ -38,14 +38,14 @@ export const CameraPhotos = ({
   const frontCameraRef = React.useRef() as React.MutableRefObject<Webcam>;
   const [isFrontCamera, setIsFrontCamera] = React.useState(false);
 
-  const capture = async() => {
-    await setBackCameraImage(backCameraRef.current.getScreenshot() as string);
+  const capture = () => {
+    setBackCameraImage(backCameraRef.current.getScreenshot() as string);
     backCameraRef.current.componentWillUnmount();
-    await setIsFrontCamera(true);
-    await setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
-    frontCameraRef.current.componentWillUnmount();
-    // setBackCameraImage(backCameraRef.current.getScreenshot() as string);
-    // setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
+    setIsFrontCamera(true);
+    setTimeout(() => {
+      setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
+      frontCameraRef.current.componentWillUnmount();
+    }, 1500);
     onClose();
   };
 
