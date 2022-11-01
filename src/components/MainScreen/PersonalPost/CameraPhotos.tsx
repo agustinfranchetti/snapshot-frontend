@@ -15,8 +15,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { FiCamera } from "react-icons/fi";
 import { MdOutlineAddAPhoto } from "react-icons/md";
+import { RiCameraLensLine } from "react-icons/ri";
 
 const backVideoConstraints = {
   facingMode: "environment",
@@ -105,12 +105,12 @@ export const CameraPhotos = ({
             )}
             <Box display="flex" justifyContent="center" width="100%" mt={-12}>
               <IconButton
-                size={"md"}
                 mr={3}
                 onClick={capture}
-                icon={<FiCamera />}
+                icon={<RiCameraLensLine size={"3em"} />}
                 aria-label={"camera-shutter-btn"}
                 isRound={true}
+                backgroundColor={"white"}
               />
             </Box>
           </ModalBody>
