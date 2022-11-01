@@ -105,7 +105,7 @@ export const CameraPhotos = ({
             )}
             <Box display="flex" justifyContent="center" width="100%" mt={-12}>
               <IconButton
-                mr={3}
+                mb={3}
                 size="3.5em"
                 onClick={capture}
                 icon={<RiCameraLensLine size={"3em"} />}
