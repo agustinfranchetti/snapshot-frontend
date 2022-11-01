@@ -2,8 +2,7 @@ import { WagmiConfig, createClient, configureChains, chain } from "wagmi";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { publicProvider } from "wagmi/providers/public";
-import { NavBar } from "./components/NavBar";
-import { Flex, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { DesktopView } from "./components/MainScreen/DesktopView";
 
 import { MainScreenContainer } from "./components/MainScreen/MainScreenContainer";
@@ -33,10 +32,7 @@ export const App = () => {
   return (
     <WagmiConfig client={client}>
       <Box display={{ base: "block", md: "none" }}>
-        <NavBar />
-        <Flex flexDir="column" alignItems="center" mt={"10vh"}>
-          <MainScreenContainer />
-        </Flex>
+        <MainScreenContainer />
       </Box>
       <DesktopView />
     </WagmiConfig>

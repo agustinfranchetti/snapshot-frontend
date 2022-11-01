@@ -42,8 +42,10 @@ export const Login = () => {
       justifyContent="center"
       h={"80vh"}
     >
-      <Text fontSize={"xl"} mb={5}>Welcome to SnapShot</Text>
-      <Text fontSize={"xl"} mb={10}>Connect your wallet to continue</Text>
+      <Text fontSize="6xl" fontWeight="extrabold" mb={5}>
+        SnapShot
+      </Text>
+      <Text fontSize={"xl"} mb={10} fontWeight="semibold">Connect your wallet to continue</Text>
       {connectors.map((connector, index) => (
         <Box>
         <Button key={connector.id} onClick={() => connect({ connector })} w={"80vw"} color="white" bgColor="black">

@@ -1,7 +1,7 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import { useAccount } from "wagmi";
-
+import { NavBar } from "../NavBar";
 import { Login } from "../Login";
 import { MainScreen } from "./MainScreen";
 
@@ -13,8 +13,17 @@ export const MainScreenContainer = () => {
   const { isConnected } = useAccount();
   return (
     <Flex flexDir="column" alignItems="center" mt={2}>
-      {isConnected ? <MainScreen /> : <Login />}
-       {/* <MainScreen />  */}
+      {isConnected ? (
+        <Box>
+          <NavBar />
+          <Flex flexDir="column" alignItems="center" mt={"10vh"}>
+            <MainScreen />
+          </Flex>
+        </Box>
+      ) : (
+        <Login />
+      )}
+      {/* <MainScreen />  */}
     </Flex>
   );
 };
