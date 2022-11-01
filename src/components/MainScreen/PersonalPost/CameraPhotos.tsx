@@ -14,13 +14,13 @@ import {
 } from "@chakra-ui/react";
 
 const backVideoConstraints = {
-  width: 720,
-  height: 1280,
+  // width: 720,
+  // height: 1280,
   facingMode: "environment",
 };
 const frontVideoConstraints = {
-  width: 720,
-  height: 1280,
+  // width: 720,
+  // height: 1280,
   facingMode: "user",
 };
 
@@ -60,11 +60,11 @@ export const CameraPhotos = ({
           <ModalBody>
             <Webcam
               audio={false}
-              height={1280}
+              height={1920}
               ref={webcamRef}
-              screenshotFormat="image/webp"
-              width={720}
-              videoConstraints={backVideoConstraints}
+              screenshotFormat="image/jpeg"
+              width={1080}
+              videoConstraints={videoConstraints}
             />
           </ModalBody>
           <ModalFooter>
