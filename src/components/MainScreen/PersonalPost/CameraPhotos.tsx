@@ -8,7 +8,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -95,12 +94,16 @@ export const CameraPhotos = ({
             ) : (
               <BackCamera cameraRef={backCameraRef} />
             )}
-          </ModalBody>
-          <ModalFooter>
-            <Box display="flex" justifyContent="center" width="100%">
-              <IconButton mr={3} onClick={capture} icon={<FiCamera />} aria-label={"camera-shutter-btn"} />
+            <Box display="flex" justifyContent="center" width="100%" mt={-12}>
+              <IconButton
+                mr={3}
+                onClick={capture}
+                icon={<FiCamera />}
+                aria-label={"camera-shutter-btn"}
+                isRound={true}
+              />
             </Box>
-          </ModalFooter>
+          </ModalBody>
         </ModalContent>
       </Modal>
       {frontCameraImage === "" && backCameraImage === "" && (
