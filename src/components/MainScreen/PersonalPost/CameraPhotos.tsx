@@ -12,9 +12,11 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Text,
 } from "@chakra-ui/react";
 
 import { FiCamera } from "react-icons/fi";
+import { MdOutlineAddAPhoto } from "react-icons/md";
 
 const backVideoConstraints = {
   facingMode: "environment",
@@ -83,7 +85,13 @@ export const CameraPhotos = ({
   };
 
   return (
-    <Box>
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      textAlign="center"
+      alignItems={"center"}
+      h={"190px"}
+    >
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent mx="auto" my="auto" maxW="100%" maxH="100%">
@@ -97,6 +105,7 @@ export const CameraPhotos = ({
             )}
             <Box display="flex" justifyContent="center" width="100%" mt={-12}>
               <IconButton
+                size={"md"}
                 mr={3}
                 onClick={capture}
                 icon={<FiCamera />}
@@ -105,14 +114,22 @@ export const CameraPhotos = ({
               />
             </Box>
           </ModalBody>
-          <ModalFooter/>
+          <ModalFooter />
         </ModalContent>
       </Modal>
       {frontCameraImage === "" && backCameraImage === "" && (
-        <Button 
-        w={"130px"}
-        h={"150px"}
-        onClick={onOpen}>Open Modal</Button>
+        <Button w={"130px"} h={"150px"} onClick={onOpen} backgroundColor={"white"} border={"2px solid black"} borderRadius={"10px"}>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            textAlign="center"
+            alignItems={"center"}
+            gap={2}
+          >
+          <Text fontSize={"lg"}>Snap</Text>
+          <MdOutlineAddAPhoto size={"30%"} />
+          </Box>
+        </Button>
       )}
     </Box>
   );

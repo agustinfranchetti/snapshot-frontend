@@ -42,18 +42,11 @@ export const PersonalPost = () => {
       />
     </Box>
   ) : (
-    <Box
-      display={"flex"}
-      flexDirection={"column"}
-      textAlign="center"
-      alignItems={"center"}
-    >
-      <CameraPhotos
-        setFrontCameraImage={setFrontCameraImage}
-        setBackCameraImage={setBackCameraImage}
-        frontCameraImage={frontCameraImage}
-        backCameraImage={backCameraImage}
-      />
-    </Box>
+    <CameraPhotos
+      setFrontCameraImage={setFrontCameraImage}
+      setBackCameraImage={setBackCameraImage}
+      frontCameraImage={frontCameraImage}
+      backCameraImage={backCameraImage}
+    />
   );
 };
