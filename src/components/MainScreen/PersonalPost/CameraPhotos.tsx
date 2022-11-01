@@ -42,11 +42,12 @@ export const CameraPhotos = ({
     setBackCameraImage(backCameraRef.current.getScreenshot() as string);
     backCameraRef.current.componentWillUnmount();
     setIsFrontCamera(true);
+    //wait for 2 seconds
     setTimeout(() => {
-      setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
-      frontCameraRef.current.componentWillUnmount();
-    }, 1500);
+    setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
+    frontCameraRef.current.componentWillUnmount();
     onClose();
+    }, 2000);
   };
 
   return (
