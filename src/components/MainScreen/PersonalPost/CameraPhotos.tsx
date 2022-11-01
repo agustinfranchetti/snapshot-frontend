@@ -37,12 +37,13 @@ export const CameraPhotos = ({
   const backCameraRef = React.useRef() as React.MutableRefObject<Webcam>;
   const frontCameraRef = React.useRef() as React.MutableRefObject<Webcam>;
   const [isFrontCamera, setIsFrontCamera] = React.useState(false);
+  
   const capture = () => {
-    if (isFrontCamera) {
-    setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
-    } else {
     setBackCameraImage(backCameraRef.current.getScreenshot() as string);
-    }
+    backCameraRef.current.componentWillUnmount();
+    setIsFrontCamera(true);
+    setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
+    frontCameraRef.current.componentWillUnmount();
     // setBackCameraImage(backCameraRef.current.getScreenshot() as string);
     // setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
     onClose();
@@ -56,20 +57,6 @@ export const CameraPhotos = ({
           <ModalHeader>Take a photo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Button
-              onClick={() => {
-                setIsFrontCamera(!isFrontCamera);
-                if (isFrontCamera) {
-                  setBackCameraImage(backCameraRef.current.getScreenshot() as string);
-                  backCameraRef.current.componentWillUnmount();
-                } else {
-                  setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
-                  frontCameraRef.current.componentWillUnmount();
-                }
-              }}
-            >
-              Switch camera
-            </Button>
             {isFrontCamera ? (
               <FrontCamera cameraRef={frontCameraRef} />
             ) : (
