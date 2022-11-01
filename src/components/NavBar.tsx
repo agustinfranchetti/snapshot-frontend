@@ -1,5 +1,5 @@
 import { BsFillPeopleFill } from "react-icons/bs";
-import { CgProfile } from "react-icons/cg";
+import { MdAccountCircle } from "react-icons/md";
 import { Flex, IconButton, Text } from "@chakra-ui/react";
 
 /**
@@ -31,12 +31,12 @@ export const NavBar = () => {
           console.log("Friends");
         }}
       />
-      <Text fontSize="xl" fontWeight="bold">
+      <Text fontSize="xl" fontWeight="extrabold">
         SnapShot
       </Text>
       <IconButton
         aria-label="Profile"
-        icon={<CgProfile size={"1.7rem"} />}
+        icon={<MdAccountCircle size={"2rem"} />}
         isRound
         variant="ghost"
         onClick={() => {
