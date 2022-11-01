@@ -7,7 +7,7 @@ import {
   useNetwork,
   useSwitchNetwork,
 } from "wagmi";
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text, Box } from "@chakra-ui/react";
 
 /**
  * Component thet displays login buttons for metamask and wallet
@@ -30,20 +30,29 @@ export const Login = () => {
   //   }
   // }
 
+  connectors.forEach((connector) => {
+    console.log(connector);
+  });
+
   return !isConnected ? (
     <Flex
       flexDir={"column"}
       textAlign="center"
       alignItems="center"
       justifyContent="center"
-      gap={2}
-      mt={2}
+      h={"80vh"}
     >
-      {connectors.map((connector) => (
-        <Button key={connector.id} onClick={() => connect({ connector })}>
+      <Text fontSize={"xl"} mb={5}>Welcome to SnapShot</Text>
+      <Text fontSize={"xl"} mb={10}>Connect your wallet to continue</Text>
+      {connectors.map((connector, index) => (
+        <Box>
+        <Button key={connector.id} onClick={() => connect({ connector })} w={"80vw"} color="white" bgColor="black">
           Connect with {connector.name}
         </Button>
+        {index === 0 && <Text fontSize={"xl"} my={1}>- or -</Text>}
+      </Box>
       ))}
+
       {error && <Text color="red">{error.message}</Text>}
     </Flex>
   ) : null;
