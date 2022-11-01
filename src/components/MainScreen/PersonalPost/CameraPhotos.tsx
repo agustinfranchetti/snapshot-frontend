@@ -42,11 +42,11 @@ export const CameraPhotos = ({
     setBackCameraImage(backCameraRef.current.getScreenshot() as string);
     backCameraRef.current.componentWillUnmount();
     setIsFrontCamera(true);
-    //wait for 2 seconds
+    //wait for 2 seconds to allow campera change before taking picture
     setTimeout(() => {
-    setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
-    frontCameraRef.current.componentWillUnmount();
-    onClose();
+      setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
+      frontCameraRef.current.componentWillUnmount();
+      onClose();
     }, 2000);
   };
 
