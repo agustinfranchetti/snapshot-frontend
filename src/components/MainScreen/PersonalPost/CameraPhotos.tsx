@@ -64,7 +64,7 @@ export const CameraPhotos = ({
               ref={webcamRef}
               screenshotFormat="image/jpeg"
               width={1080}
-              videoConstraints={videoConstraints}
+              videoConstraints={frontVideoConstraints}
             />
           </ModalBody>
           <ModalFooter>
