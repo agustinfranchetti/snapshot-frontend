@@ -1,5 +1,5 @@
-import { Avatar, Text, Flex, IconButton } from "@chakra-ui/react";
-import { BsThreeDots } from "react-icons/bs";
+import { Avatar, Text, Flex } from "@chakra-ui/react";
+import { FriendPostOptions } from "./FriendPostOptions";
 
 interface FriendPostHeaderProps {
   name: string;
@@ -25,15 +25,7 @@ export const FriendPostHeader = ({
           </Text>
         </Flex>
       </Flex>
-      <IconButton
-        aria-label="Options"
-        icon={<BsThreeDots size={"1.7rem"} />}
-        isRound
-        variant="ghost"
-        onClick={() => {
-          console.log("Options");
-        }}
-      />
+      <FriendPostOptions />
     </Flex>
   );
 };
