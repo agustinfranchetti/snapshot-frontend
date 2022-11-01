@@ -54,14 +54,15 @@ export const CameraPhotos = ({
             <Button onClick={() => setIsFrontCamera(!isFrontCamera)}>
               Switch camera
             </Button>
+            {isFrontCamera ? (
             <FrontCamera
-              isFrontCamera={isFrontCamera}
               cameraRef={frontCameraRef}
             />
+            ) : (
             <BackCamera
-              isFrontCamera={!isFrontCamera}
               cameraRef={backCameraRef}
             />
+            )}
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={capture}>
@@ -82,11 +83,9 @@ export const CameraPhotos = ({
 
 interface CameraProps {
   cameraRef: React.MutableRefObject<Webcam>;
-  isFrontCamera: boolean;
 }
-const FrontCamera = ({ cameraRef, isFrontCamera }: CameraProps) => {
+const FrontCamera = ({ cameraRef }: CameraProps) => {
   return (
-    <Box display={isFrontCamera ? "block" : "none"}>
       <Webcam
         audio={false}
         height={1920}
@@ -95,12 +94,10 @@ const FrontCamera = ({ cameraRef, isFrontCamera }: CameraProps) => {
         width={1080}
         videoConstraints={frontVideoConstraints}
       />
-    </Box>
   );
 };
-const BackCamera = ({ cameraRef, isFrontCamera }: CameraProps) => {
+const BackCamera = ({ cameraRef }: CameraProps) => {
   return (
-    <Box display={isFrontCamera ? "block" : "none"}>
       <Webcam
         audio={false}
         height={1920}
@@ -109,6 +106,5 @@ const BackCamera = ({ cameraRef, isFrontCamera }: CameraProps) => {
         width={1080}
         videoConstraints={backVideoConstraints}
       />
-    </Box>
   );
 };
