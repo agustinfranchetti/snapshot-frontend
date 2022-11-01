@@ -2,6 +2,7 @@ import React from "react";
 import Webcam from "react-webcam";
 import {
   Button,
+  IconButton,
   Box,
   Modal,
   ModalOverlay,
@@ -13,11 +14,42 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
+import { FiCamera } from "react-icons/fi";
+
 const backVideoConstraints = {
   facingMode: "environment",
 };
 const frontVideoConstraints = {
   facingMode: "user",
+};
+
+interface CameraProps {
+  cameraRef: React.MutableRefObject<Webcam>;
+}
+
+const FrontCamera = ({ cameraRef }: CameraProps) => {
+  return (
+    <Webcam
+      audio={false}
+      height={1920}
+      ref={cameraRef}
+      screenshotFormat="image/jpeg"
+      width={1080}
+      videoConstraints={frontVideoConstraints}
+    />
+  );
+};
+const BackCamera = ({ cameraRef }: CameraProps) => {
+  return (
+    <Webcam
+      audio={false}
+      height={1920}
+      ref={cameraRef}
+      screenshotFormat="image/jpeg"
+      width={1080}
+      videoConstraints={backVideoConstraints}
+    />
+  );
 };
 
 interface CameraPhotosProps {
@@ -54,7 +86,7 @@ export const CameraPhotos = ({
     <Box>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent mx="auto" my="auto" maxW="100%" maxH="100%">
           <ModalHeader>Take a photo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -65,12 +97,9 @@ export const CameraPhotos = ({
             )}
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={capture}>
-              Capture photo
-            </Button>
-            <Button variant="ghost" onClick={onClose}>
-              Close
-            </Button>
+            <Box display="flex" justifyContent="center" width="100%">
+              <IconButton mr={3} onClick={capture} icon={<FiCamera />} aria-label={"camera-shutter-btn"} />
+            </Box>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -78,33 +107,5 @@ export const CameraPhotos = ({
         <Button onClick={onOpen}>Open Modal</Button>
       )}
     </Box>
-  );
-};
-
-interface CameraProps {
-  cameraRef: React.MutableRefObject<Webcam>;
-}
-const FrontCamera = ({ cameraRef }: CameraProps) => {
-  return (
-    <Webcam
-      audio={false}
-      height={1920}
-      ref={cameraRef}
-      screenshotFormat="image/jpeg"
-      width={1080}
-      videoConstraints={frontVideoConstraints}
-    />
-  );
-};
-const BackCamera = ({ cameraRef }: CameraProps) => {
-  return (
-    <Webcam
-      audio={false}
-      height={1920}
-      ref={cameraRef}
-      screenshotFormat="image/jpeg"
-      width={1080}
-      videoConstraints={backVideoConstraints}
-    />
   );
 };
