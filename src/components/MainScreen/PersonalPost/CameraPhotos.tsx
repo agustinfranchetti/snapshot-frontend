@@ -65,14 +65,14 @@ export const CameraPhotos = ({
               />
             {/* </Box> */}
             {/* <Box hidden={!isFrontCamera}> */}
-              <Webcam
+              {/* <Webcam
                 audio={false}
                 height={1920}
                 ref={frontCameraRef}
                 screenshotFormat="image/jpeg"
                 width={1080}
                 videoConstraints={frontVideoConstraints}
-              />
+              /> */}
             {/* </Box> */}
           </ModalBody>
           <ModalFooter>
