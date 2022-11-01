@@ -30,10 +30,6 @@ export const Login = () => {
   //   }
   // }
 
-  connectors.forEach((connector) => {
-    console.log(connector);
-  });
-
   return !isConnected ? (
     <Flex
       flexDir={"column"}
@@ -47,11 +43,11 @@ export const Login = () => {
       </Text>
       <Text fontSize={"xl"} mb={10} fontWeight="semibold">Connect your wallet to continue</Text>
       {connectors.map((connector, index) => (
-        <Box>
-        <Button key={connector.id} onClick={() => connect({ connector })} w={"80vw"} color="white" bgColor="black">
+        <Box key={connector.id}>
+        <Button  onClick={() => connect({ connector })} w={"80vw"} color="white" bgColor="black">
           Connect with {connector.name}
         </Button>
-        {index === 0 && <Text fontSize={"xl"} my={1}>- or -</Text>}
+        {index === 0 && <Text fontSize={"xl"} mt={1} mb={2}>- or -</Text>}
       </Box>
       ))}
 
