@@ -51,28 +51,29 @@ export const CameraPhotos = ({
           <ModalHeader>Take a photo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-
-            <Box hidden={isFrontCamera}>
-            <Webcam
-              audio={false}
-              height={1920}
-              ref={backCameraRef}
-              screenshotFormat="image/jpeg"
-              width={1080}
-              videoConstraints={backVideoConstraints}
-            />
-            </Box>
-            <Box hidden={!isFrontCamera}>
-            <Webcam
-              audio={false}
-              height={1920}
-              ref={frontCameraRef}
-              screenshotFormat="image/jpeg"
-              width={1080}
-              videoConstraints={frontVideoConstraints}
-            />
-            </Box>
-            <Button onClick={() => setIsFrontCamera(!isFrontCamera)}>Switch camera</Button>
+            <Button onClick={() => setIsFrontCamera(!isFrontCamera)}>
+              Switch camera
+            </Button>
+            {/* <Box hidden={isFrontCamera}> */}
+              <Webcam
+                audio={false}
+                height={1920}
+                ref={backCameraRef}
+                screenshotFormat="image/jpeg"
+                width={1080}
+                videoConstraints={backVideoConstraints}
+              />
+            {/* </Box> */}
+            {/* <Box hidden={!isFrontCamera}> */}
+              <Webcam
+                audio={false}
+                height={1920}
+                ref={frontCameraRef}
+                screenshotFormat="image/jpeg"
+                width={1080}
+                videoConstraints={frontVideoConstraints}
+              />
+            {/* </Box> */}
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={capture}>
