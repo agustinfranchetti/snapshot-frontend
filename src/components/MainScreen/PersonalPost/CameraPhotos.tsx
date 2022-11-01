@@ -38,8 +38,13 @@ export const CameraPhotos = ({
   const frontCameraRef = React.useRef() as React.MutableRefObject<Webcam>;
   const [isFrontCamera, setIsFrontCamera] = React.useState(false);
   const capture = () => {
-    setBackCameraImage(backCameraRef.current.getScreenshot() as string);
+    if (isFrontCamera) {
     setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
+    } else {
+    setBackCameraImage(backCameraRef.current.getScreenshot() as string);
+    }
+    // setBackCameraImage(backCameraRef.current.getScreenshot() as string);
+    // setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
     onClose();
   };
 
@@ -55,8 +60,10 @@ export const CameraPhotos = ({
               onClick={() => {
                 setIsFrontCamera(!isFrontCamera);
                 if (isFrontCamera) {
+                  setBackCameraImage(backCameraRef.current.getScreenshot() as string);
                   backCameraRef.current.componentWillUnmount();
                 } else {
+                  setFrontCameraImage(frontCameraRef.current.getScreenshot() as string);
                   frontCameraRef.current.componentWillUnmount();
                 }
               }}
