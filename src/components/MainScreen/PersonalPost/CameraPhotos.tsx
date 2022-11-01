@@ -111,6 +111,9 @@ export const CameraPhotos = ({
                 aria-label={"camera-shutter-btn"}
                 isRound={true}
                 backgroundColor={"white"}
+                _hover={{ bg: "white" }}
+                _active={{ bg: "white" }}
+                _focus={{ bg: "white" }}
               />
             </Box>
           </ModalBody>
