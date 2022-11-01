@@ -18,9 +18,9 @@ export const FriendPostHeader = ({
     <Flex w={"90vw"} justifyContent={"space-between"} mt={2}>
       <Flex gap={2} alignItems={"center"} mx={2}>
         <Avatar size={"sm"} name={`profile-pic-${name}`} src={profilePicture} />
-        <Flex flexDir={"column"}>
+        <Flex flexDir={"column"} >
           <Text fontWeight={"bold"}>{name}</Text>
-          <Text fontSize={"xs"} color={"gray.500"}>
+          <Text fontSize={"xs"} color={"gray.500"} mt={-1.5}> 
             1h ago
           </Text>
         </Flex>
