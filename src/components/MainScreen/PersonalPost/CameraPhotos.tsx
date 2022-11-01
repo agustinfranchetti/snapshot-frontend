@@ -54,26 +54,14 @@ export const CameraPhotos = ({
             <Button onClick={() => setIsFrontCamera(!isFrontCamera)}>
               Switch camera
             </Button>
-            {/* <Box hidden={isFrontCamera}> */}
-              <Webcam
-                audio={false}
-                height={1920}
-                ref={backCameraRef}
-                screenshotFormat="image/jpeg"
-                width={1080}
-                videoConstraints={backVideoConstraints}
-              />
-            {/* </Box> */}
-            {/* <Box hidden={!isFrontCamera}> */}
-              {/* <Webcam
-                audio={false}
-                height={1920}
-                ref={frontCameraRef}
-                screenshotFormat="image/jpeg"
-                width={1080}
-                videoConstraints={frontVideoConstraints}
-              /> */}
-            {/* </Box> */}
+            <FrontCamera
+              isFrontCamera={isFrontCamera}
+              cameraRef={frontCameraRef}
+            />
+            <BackCamera
+              isFrontCamera={!isFrontCamera}
+              cameraRef={backCameraRef}
+            />
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={capture}>
@@ -88,6 +76,39 @@ export const CameraPhotos = ({
       {frontCameraImage === "" && backCameraImage === "" && (
         <Button onClick={onOpen}>Open Modal</Button>
       )}
+    </Box>
+  );
+};
+
+interface CameraProps {
+  cameraRef: React.MutableRefObject<Webcam>;
+  isFrontCamera: boolean;
+}
+const FrontCamera = ({ cameraRef, isFrontCamera }: CameraProps) => {
+  return (
+    <Box display={isFrontCamera ? "block" : "none"}>
+      <Webcam
+        audio={false}
+        height={1920}
+        ref={cameraRef}
+        screenshotFormat="image/jpeg"
+        width={1080}
+        videoConstraints={frontVideoConstraints}
+      />
+    </Box>
+  );
+};
+const BackCamera = ({ cameraRef, isFrontCamera }: CameraProps) => {
+  return (
+    <Box display={isFrontCamera ? "block" : "none"}>
+      <Webcam
+        audio={false}
+        height={1920}
+        ref={cameraRef}
+        screenshotFormat="image/jpeg"
+        width={1080}
+        videoConstraints={backVideoConstraints}
+      />
     </Box>
   );
 };
