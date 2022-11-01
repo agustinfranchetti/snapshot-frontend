@@ -109,7 +109,10 @@ export const CameraPhotos = ({
         </ModalContent>
       </Modal>
       {frontCameraImage === "" && backCameraImage === "" && (
-        <Button onClick={onOpen}>Open Modal</Button>
+        <Button 
+        w={"130px"}
+        h={"150px"}
+        onClick={onOpen}>Open Modal</Button>
       )}
     </Box>
   );

@@ -15,19 +15,13 @@ export const PersonalPost = () => {
   const [frontCameraImage, setFrontCameraImage] = useState("");
   const [description, setDescription] = useState("");
 
-  return (
+  return backCameraImage !== "" && frontCameraImage !== "" ? (
     <Box
       display={"flex"}
       flexDirection={"column"}
       textAlign="center"
       alignItems={"center"}
     >
-      <CameraPhotos
-        setFrontCameraImage={setFrontCameraImage}
-        setBackCameraImage={setBackCameraImage}
-        frontCameraImage={frontCameraImage}
-        backCameraImage={backCameraImage}
-      />
       <PostImage
         backCameraImage={backCameraImage}
         frontCameraImage={frontCameraImage}
@@ -45,6 +39,20 @@ export const PersonalPost = () => {
       <PersonalPostCommentModal
         description={description}
         setDescription={setDescription}
+      />
+    </Box>
+  ) : (
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      textAlign="center"
+      alignItems={"center"}
+    >
+      <CameraPhotos
+        setFrontCameraImage={setFrontCameraImage}
+        setBackCameraImage={setBackCameraImage}
+        frontCameraImage={frontCameraImage}
+        backCameraImage={backCameraImage}
       />
     </Box>
   );
