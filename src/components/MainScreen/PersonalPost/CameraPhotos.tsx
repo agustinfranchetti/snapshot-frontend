@@ -8,6 +8,7 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
+  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -104,6 +105,7 @@ export const CameraPhotos = ({
               />
             </Box>
           </ModalBody>
+          <ModalFooter/>
         </ModalContent>
       </Modal>
       {frontCameraImage === "" && backCameraImage === "" && (
