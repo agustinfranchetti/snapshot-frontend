@@ -103,7 +103,7 @@ export const CameraPhotos = ({
             ) : (
               <BackCamera cameraRef={backCameraRef} />
             )}
-            <Box display="flex" justifyContent="center" width="100%" mt={-15}>
+            <Box display="flex" justifyContent="center" width="100%" mt={-16}>
               <IconButton
                 size="3.5em"
                 onClick={capture}
